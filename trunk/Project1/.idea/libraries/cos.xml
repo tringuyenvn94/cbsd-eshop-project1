@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="cos">
+    <CLASSES>
+      <root url="jar://E:/JavaLibary/CBSD/cos.jar!/" />
+      <root url="jar://E:/JavaLibary/CBSD/fileupload.jar!/" />
+      <root url="jar://E:/JavaLibary/CBSD/standard.jar!/" />
+      <root url="jar://E:/JavaLibary/CBSD/struts.jar!/" />
+      <root url="jar://E:/JavaLibary/CBSD/uploadbean.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
