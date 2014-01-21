@@ -67,18 +67,19 @@
       <file leaf-file-name="manageTable.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/manageTable.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="332" column="77" selection-start="13631" selection-end="13631" vertical-scroll-proportion="8.769231" vertical-offset="5872" max-vertical-offset="9061">
+            <state line="372" column="77" selection-start="15426" selection-end="15426" vertical-scroll-proportion="26.807692" vertical-offset="5712" max-vertical-offset="7735">
               <folding>
+                <element signature="tag#c:when#0;tag#c:choose#1;tag#jsp:root#0" expanded="false" />
                 <element signature="tag#c:when#2;tag#c:choose#1;tag#jsp:root#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <file leaf-file-name="cart.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/cart.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="37" selection-start="8434" selection-end="8434" vertical-scroll-proportion="0.88461536" vertical-offset="3032" max-vertical-offset="4029">
+            <state line="35" column="11" selection-start="1076" selection-end="1076" vertical-scroll-proportion="-1.506329" vertical-offset="1071" max-vertical-offset="3689">
               <folding />
             </state>
           </provider>
@@ -138,10 +139,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="signup.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/signup.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="62" selection-start="666" selection-end="666" vertical-scroll-proportion="0.914557" vertical-offset="0" max-vertical-offset="4029">
+            <state line="200" column="25" selection-start="9298" selection-end="9298" vertical-scroll-proportion="-32.423077" vertical-offset="2557" max-vertical-offset="3689">
               <folding />
             </state>
           </provider>
@@ -193,8 +194,9 @@
         <option value="$PROJECT_DIR$/web/adminManagePage.jsp" />
         <option value="$PROJECT_DIR$/web/product.jsp" />
         <option value="$PROJECT_DIR$/web/description.jsp" />
-        <option value="$PROJECT_DIR$/web/manageTable.jsp" />
         <option value="$PROJECT_DIR$/web/logout.jsp" />
+        <option value="$PROJECT_DIR$/web/signup.jsp" />
+        <option value="$PROJECT_DIR$/web/manageTable.jsp" />
       </list>
     </option>
   </component>
@@ -638,12 +640,12 @@
       <workItem from="1390249876932" duration="6371000" />
       <workItem from="1390293750663" duration="1066000" />
       <workItem from="1390298656276" duration="8945000" />
-      <workItem from="1390309324161" duration="3584000" />
+      <workItem from="1390309324161" duration="6872000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165808000" />
+    <option name="totallyTimeSpent" value="169096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1364" height="726" extended-state="0" />
@@ -700,13 +702,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/addProducttype.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="709" selection-end="762" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/logout.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="69" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="476">
@@ -906,20 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/TestPic1.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="58" selection-start="406" selection-end="435" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/TestPic2.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="41" selection-start="820" selection-end="820" vertical-scroll-proportion="-9.230769" vertical-offset="219" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/images/product/9.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -981,15 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/manageTable.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="332" column="77" selection-start="13631" selection-end="13631" vertical-scroll-proportion="8.769231" vertical-offset="5872" max-vertical-offset="9061">
-          <folding>
-            <element signature="tag#c:when#2;tag#c:choose#1;tag#jsp:root#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/loginAuthenticate.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="27" selection-start="1353" selection-end="1360" vertical-scroll-proportion="-7.1153846" vertical-offset="580" max-vertical-offset="1700">
@@ -1018,9 +990,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/TestPic2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="44" selection-start="973" selection-end="973" vertical-scroll-proportion="0.5349544" vertical-offset="334" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/TestPic1.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="27" selection-start="524" selection-end="524" vertical-scroll-proportion="-5.8076925" vertical-offset="155" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/signup.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="62" selection-start="666" selection-end="666" vertical-scroll-proportion="0.914557" vertical-offset="0" max-vertical-offset="4029">
+        <state line="200" column="25" selection-start="9298" selection-end="9298" vertical-scroll-proportion="-32.423077" vertical-offset="2557" max-vertical-offset="3689">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manageTable.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="372" column="77" selection-start="15426" selection-end="15426" vertical-scroll-proportion="26.807692" vertical-offset="5712" max-vertical-offset="7735">
+          <folding>
+            <element signature="tag#c:when#0;tag#c:choose#1;tag#jsp:root#0" expanded="false" />
+            <element signature="tag#c:when#2;tag#c:choose#1;tag#jsp:root#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/cart.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="11" selection-start="1076" selection-end="1076" vertical-scroll-proportion="-1.506329" vertical-offset="1071" max-vertical-offset="3689">
           <folding />
         </state>
       </provider>

@@ -103,7 +103,6 @@
                 <li class="divider"></li>
                 <li><a href="contact.html" class="nav">Contact Us</a></li>
                 <li class="divider"></li>
-
             </ul>
         </div>
         <!-- end of menu tab -->
@@ -130,35 +129,15 @@
             <div class="banner_adds"> <a href="http://all-free-download.com/free-website-templates/"></a> </div>
         </div>
         <!-- end of left content -->
-        <sql:query dataSource="${snapshot}" var="result3">
-            SELECT * from product ORDER BY DATE ASC LIMIT 0 , 1;;
-        </sql:query>
+     
 
 
         <div class="center_content">
-            <c:forEach var="product" items="${result3.rows}" >
-            <div class="oferta"> <img src="images/product/${product.id}.png" width="165" height="113" border="0" class="oferta_img" alt="" />
-                <div class="oferta_details">
-                    <div class="oferta_title">${product.pname}</div>
-                    <div class="oferta_text">&nbsp; </div>
-                    <a href="http://all-free-download.com/free-website-templates/" class="prod_buy">details</a> </div>
-            </div>
-            </c:forEach>
-            <div class="center_title_bar">Latest Products</div>
-            <sql:query dataSource="${snapshot}" var="result">
-                SELECT * from product ORDER BY DATE ASC LIMIT 0 , 6;;
-            </sql:query>
-            <c:forEach var="product" items="${result.rows}" varStatus="status">
-                <div class="prod_box">
-                    <div class="center_prod_box">
-                        <div class="product_title"><a href="http://all-free-download.com/free-website-templates/">${product.id} ${product.pname} (${product.date} )</a></div>
-                        <div class="product_img"><a href="http://all-free-download.com/free-website-templates/"><img src="images/product/${product.id}.png" alt="" border="0" width="94" height="71" /></a></div>
-                        <div class="prod_price"><!--<span class="reduce">350$</span> --><span class="price">${product.price} Bath.</span></div>
-                    </div>
-                    <div class="prod_details_tab"> <a href="http://all-free-download.com/free-website-templates/" class="prod_buy">Add to Cart</a> <a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');" class="prod_details">Details</a> </div>
-                </div>
-            </c:forEach>
-
+          
+            <div class="center_title_bar">Signup</div>
+            <table>
+			
+			</table>
         </div>
         <!-- end of center content -->
         <div class="right_content">
@@ -188,7 +167,8 @@
                     <div class="shopping_cart">
                         <div class="title_box">Shopping cart</div>
                         <div class="cart_details"> ${totalProduct} items <br />
-                            <span class="border_cart"></span> Total: <span class="price">${totalPrice} $</span> </div>
+                            <span class="border_cart"></span> Total: <span class="price">${totalPrice} $</span>
+                        </div>
                         <div class="cart_icon"><a href="http://all-free-download.com/free-website-templates/"><img src="images/shoppingcart.png" alt="" width="35" height="35" border="0" /></a></div>
                     </div>
                 </c:when>
