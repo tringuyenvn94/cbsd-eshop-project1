@@ -67,37 +67,54 @@
       <file leaf-file-name="manageTable.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/manageTable.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="372" column="77" selection-start="15426" selection-end="15426" vertical-scroll-proportion="26.807692" vertical-offset="5712" max-vertical-offset="7735">
+            <state line="173" column="17" selection-start="3484" selection-end="6342" vertical-scroll-proportion="-3.5384614" vertical-offset="2849" max-vertical-offset="9248">
               <folding>
-                <element signature="tag#c:when#0;tag#c:choose#1;tag#jsp:root#0" expanded="false" />
                 <element signature="tag#c:when#2;tag#c:choose#1;tag#jsp:root#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cart.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/cart.jsp">
+      <file leaf-file-name="signup.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/signup.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="11" selection-start="1076" selection-end="1076" vertical-scroll-proportion="-1.506329" vertical-offset="1071" max-vertical-offset="3689">
+            <state line="225" column="37" selection-start="8611" selection-end="8611" vertical-scroll-proportion="0.28169015" vertical-offset="3705" max-vertical-offset="5848">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/product.jsp">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="21" selection-start="3299" selection-end="3299" vertical-scroll-proportion="0.0" vertical-offset="1146" max-vertical-offset="3536">
+            <state line="316" column="1" selection-start="5497" selection-end="5505" vertical-scroll-proportion="-4.8461537" vertical-offset="5246" max-vertical-offset="9078">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="description.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/description.jsp">
+      <file leaf-file-name="addUser.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/addUser.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="9" selection-start="1311" selection-end="1311" vertical-scroll-proportion="-11.115385" vertical-offset="306" max-vertical-offset="799">
+            <state line="19" column="42" selection-start="656" selection-end="656" vertical-scroll-proportion="-4.8461537" vertical-offset="197" max-vertical-offset="510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addCustomer.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/addCustomer.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="160" selection-start="774" selection-end="774" vertical-scroll-proportion="-6.8076925" vertical-offset="146" max-vertical-offset="510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shipping.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/shipping.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="113" column="14" selection-start="4569" selection-end="4569" vertical-scroll-proportion="-60.153847" vertical-offset="357" max-vertical-offset="3808">
               <folding />
             </state>
           </provider>
@@ -106,25 +123,16 @@
       <file leaf-file-name="viewPicture.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/viewPicture.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="44" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="374">
+            <state line="13" column="44" selection-start="315" selection-end="315" vertical-scroll-proportion="-7.6538463" vertical-offset="22" max-vertical-offset="374">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addProduct.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/addProduct.jsp">
+      <file leaf-file-name="product.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/product.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="28" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0" vertical-offset="452" max-vertical-offset="986">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminManagePage.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/adminManagePage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="36" selection-start="3591" selection-end="3591" vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="2652">
+            <state line="109" column="14" selection-start="4719" selection-end="4719" vertical-scroll-proportion="-6.8076925" vertical-offset="1676" max-vertical-offset="3825">
               <folding />
             </state>
           </provider>
@@ -133,25 +141,16 @@
       <file leaf-file-name="detail.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/detail.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="156" selection-end="350" vertical-scroll-proportion="-0.0" vertical-offset="119" max-vertical-offset="2261">
+            <state line="16" column="24" selection-start="507" selection-end="507" vertical-scroll-proportion="2.8076923" vertical-offset="345" max-vertical-offset="2397">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/signup.jsp">
+      <file leaf-file-name="editProduct.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/editProduct.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="200" column="25" selection-start="9298" selection-end="9298" vertical-scroll-proportion="-32.423077" vertical-offset="2557" max-vertical-offset="3689">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editProducttype.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/editProducttype.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="62" selection-start="676" selection-end="676" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="510">
+            <state line="7" column="0" selection-start="155" selection-end="220" vertical-scroll-proportion="-0.0" vertical-offset="119" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
@@ -183,20 +182,25 @@
         <option value="$PROJECT_DIR$/web/deleteUser.jsp" />
         <option value="$PROJECT_DIR$/web/editUser.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/viewPicture.jsp" />
-        <option value="$PROJECT_DIR$/web/TestPic2.jsp" />
         <option value="$PROJECT_DIR$/web/addProductPicture.jsp" />
         <option value="$PROJECT_DIR$/web/addPicture.jsp" />
         <option value="$PROJECT_DIR$/web/addProduct.jsp" />
-        <option value="$PROJECT_DIR$/web/detail.jsp" />
-        <option value="$PROJECT_DIR$/web/loginAuthenticate.jsp" />
-        <option value="$PROJECT_DIR$/web/style.css" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/web/adminManagePage.jsp" />
-        <option value="$PROJECT_DIR$/web/product.jsp" />
         <option value="$PROJECT_DIR$/web/description.jsp" />
+        <option value="$PROJECT_DIR$/web/TestPic2.jsp" />
+        <option value="$PROJECT_DIR$/web/addProductToCart.jsp" />
+        <option value="$PROJECT_DIR$/web/deleteProductInCart.jsp" />
+        <option value="$PROJECT_DIR$/web/detail.jsp" />
         <option value="$PROJECT_DIR$/web/logout.jsp" />
-        <option value="$PROJECT_DIR$/web/signup.jsp" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/web/loginAuthenticate.jsp" />
+        <option value="$PROJECT_DIR$/web/cart.jsp" />
+        <option value="$PROJECT_DIR$/web/product.jsp" />
         <option value="$PROJECT_DIR$/web/manageTable.jsp" />
+        <option value="$PROJECT_DIR$/web/shipping.jsp" />
+        <option value="$PROJECT_DIR$/web/addCustomer.jsp" />
+        <option value="$PROJECT_DIR$/web/style.css" />
+        <option value="$PROJECT_DIR$/web/signup.jsp" />
       </list>
     </option>
   </component>
@@ -282,7 +286,7 @@
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
@@ -640,15 +644,15 @@
       <workItem from="1390249876932" duration="6371000" />
       <workItem from="1390293750663" duration="1066000" />
       <workItem from="1390298656276" duration="8945000" />
-      <workItem from="1390309324161" duration="6872000" />
+      <workItem from="1390309324161" duration="26230000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169096000" />
+    <option name="totallyTimeSpent" value="188454000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1364" height="726" extended-state="0" />
+    <frame x="1" y="1" width="1364" height="726" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -656,6 +660,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -673,11 +678,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23813057" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3516129" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17419355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -702,25 +706,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/logout.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="69" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/loginAuthenticate.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="222" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1122">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project2.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/TestPic2.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="34" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="731">
@@ -859,44 +844,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/deleteProduct.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="45" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0" vertical-offset="137" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/deleteProducttype.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="679" selection-end="679" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/deleteUser.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="49" selection-start="672" selection-end="672" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/editUser.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="42" selection-start="915" selection-end="915" vertical-scroll-proportion="-6.769231" vertical-offset="181" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/addUser.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="42" selection-start="656" selection-end="656" vertical-scroll-proportion="-6.4615383" vertical-offset="155" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/addProducttype.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="709" selection-end="762" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
@@ -906,72 +856,88 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/viewPicture.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="44" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="374">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/addProduct.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="28" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0" vertical-offset="452" max-vertical-offset="986">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="922" selection-end="934" vertical-scroll-proportion="0.53939396" vertical-offset="995" max-vertical-offset="9061">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/adminManagePage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="36" selection-start="3591" selection-end="3591" vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="2652">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/product.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="21" selection-start="3299" selection-end="3299" vertical-scroll-proportion="0.0" vertical-offset="1146" max-vertical-offset="3536">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/editProducttype.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="62" selection-start="676" selection-end="676" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="510">
+        <state line="19" column="62" selection-start="676" selection-end="676" vertical-scroll-proportion="-8.5" vertical-offset="102" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/editProduct.jsp">
+    <entry file="file://$PROJECT_DIR$/web/TestPic1.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="155" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="510">
+        <state line="16" column="18" selection-start="395" selection-end="395" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/TestPic2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="61" selection-start="882" selection-end="882" vertical-scroll-proportion="0.7601246" vertical-offset="232" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/logout.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="41" selection-start="500" selection-end="500" vertical-scroll-proportion="-5.8076925" vertical-offset="138" max-vertical-offset="493">
+        <state line="21" column="42" selection-start="660" selection-end="660" vertical-scroll-proportion="0.67177916" vertical-offset="138" max-vertical-offset="561">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/loginAuthenticate.jsp">
+    <entry file="file://$PROJECT_DIR$/web/addProduct.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="27" selection-start="1353" selection-end="1360" vertical-scroll-proportion="-7.1153846" vertical-offset="580" max-vertical-offset="1700">
+        <state line="27" column="28" selection-start="1014" selection-end="1014" vertical-scroll-proportion="-0.26923078" vertical-offset="452" max-vertical-offset="986">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+    <entry file="file://$PROJECT_DIR$/web/addProductToCart.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="37" selection-start="8434" selection-end="8434" vertical-scroll-proportion="0.88461536" vertical-offset="3032" max-vertical-offset="4029">
+        <state line="21" column="44" selection-start="788" selection-end="801" vertical-scroll-proportion="-7.6538463" vertical-offset="158" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/addProducttype.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="709" selection-end="762" vertical-scroll-proportion="-7.6538463" vertical-offset="158" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/cart.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="205" column="14" selection-start="7690" selection-end="7690" vertical-scroll-proportion="-4.8653846" vertical-offset="1838" max-vertical-offset="5151">
+          <folding>
+            <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/deleteProduct.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="45" selection-start="721" selection-end="721" vertical-scroll-proportion="-8.461538" vertical-offset="137" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/deleteProductInCart.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="37" selection-start="720" selection-end="720" vertical-scroll-proportion="-7.8461537" vertical-offset="153" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/deleteProducttype.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="679" selection-end="679" vertical-scroll-proportion="-7.1153846" vertical-offset="155" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/deleteUser.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="49" selection-start="672" selection-end="672" vertical-scroll-proportion="-7.0" vertical-offset="158" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
@@ -985,45 +951,86 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="156" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="2261">
+        <state line="16" column="24" selection-start="507" selection-end="507" vertical-scroll-proportion="2.8076923" vertical-offset="345" max-vertical-offset="2397">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/TestPic2.jsp">
+    <entry file="file://$PROJECT_DIR$/web/editProduct.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="44" selection-start="973" selection-end="973" vertical-scroll-proportion="0.5349544" vertical-offset="334" max-vertical-offset="765">
+        <state line="7" column="0" selection-start="155" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/TestPic1.jsp">
+    <entry file="file://$PROJECT_DIR$/web/loginAuthenticate.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="27" selection-start="524" selection-end="524" vertical-scroll-proportion="-5.8076925" vertical-offset="155" max-vertical-offset="510">
+        <state line="57" column="68" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.25460124" vertical-offset="886" max-vertical-offset="1819">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/signup.jsp">
+    <entry file="file://$PROJECT_DIR$/web/viewPicture.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="200" column="25" selection-start="9298" selection-end="9298" vertical-scroll-proportion="-32.423077" vertical-offset="2557" max-vertical-offset="3689">
+        <state line="13" column="44" selection-start="315" selection-end="315" vertical-scroll-proportion="-7.6538463" vertical-offset="22" max-vertical-offset="374">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/addUser.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="42" selection-start="656" selection-end="656" vertical-scroll-proportion="-4.8461537" vertical-offset="197" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/addCustomer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="160" selection-start="774" selection-end="774" vertical-scroll-proportion="-6.8076925" vertical-offset="146" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="21" selection-start="6669" selection-end="6685" vertical-scroll-proportion="-1.5769231" vertical-offset="2611" max-vertical-offset="4250">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/product.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="14" selection-start="4719" selection-end="4719" vertical-scroll-proportion="-6.8076925" vertical-offset="1676" max-vertical-offset="3825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="316" column="1" selection-start="5497" selection-end="5505" vertical-scroll-proportion="-4.8461537" vertical-offset="5246" max-vertical-offset="9078">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/shipping.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="14" selection-start="4569" selection-end="4569" vertical-scroll-proportion="-60.153847" vertical-offset="357" max-vertical-offset="3808">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/manageTable.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="372" column="77" selection-start="15426" selection-end="15426" vertical-scroll-proportion="26.807692" vertical-offset="5712" max-vertical-offset="7735">
+        <state line="173" column="17" selection-start="3484" selection-end="6342" vertical-scroll-proportion="-3.5384614" vertical-offset="2849" max-vertical-offset="9248">
           <folding>
-            <element signature="tag#c:when#0;tag#c:choose#1;tag#jsp:root#0" expanded="false" />
             <element signature="tag#c:when#2;tag#c:choose#1;tag#jsp:root#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/cart.jsp">
+    <entry file="file://$PROJECT_DIR$/web/signup.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="11" selection-start="1076" selection-end="1076" vertical-scroll-proportion="-1.506329" vertical-offset="1071" max-vertical-offset="3689">
+        <state line="225" column="37" selection-start="8611" selection-end="8611" vertical-scroll-proportion="0.28169015" vertical-offset="3705" max-vertical-offset="5848">
           <folding />
         </state>
       </provider>
@@ -1087,6 +1094,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

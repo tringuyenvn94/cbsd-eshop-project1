@@ -15,7 +15,11 @@
 <body>
 <%
     session.removeAttribute("loginID");
-
+    session.removeAttribute("loginName");
+    if( session.getAttribute("loginUserType").equals("Customer") ){
+        session.removeAttribute("cartID");
+    }
+    session.removeAttribute("loginUserType");
 %>
 
 <c:redirect url="index.jsp"/>
