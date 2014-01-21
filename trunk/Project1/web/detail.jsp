@@ -98,7 +98,11 @@
     <title></title>
 </head>
 <body>
-    <img src="images/product/${param.id}.png" width="300" height="240"/>
+    <table style="width: 100%;">
+        <tr>
+        <th><img src="images/product/${param.id}.png" width="300" height="240"/></th>
+
+        </tr>
     <sql:setDataSource var="ds" driver="com.mysql.jdbc.Driver"
                        url="jdbc:mysql://localhost:3306/cbsdeshop"
                        user="root" password="1234"/>
@@ -108,6 +112,8 @@
     <c:forEach var="product" items="${result.rows}" >
         <c:set var="description" value="${product.description}"/>
     </c:forEach>
+        <tr>
+            <th>
     <table border="1" class="bordered">
             <%
             String description = (String) pageContext.getAttribute("description");
@@ -123,6 +129,8 @@
         %>
 
     </table>
-
+            </th>
+        </tr>
+    </table>
 </body>
 </html>

@@ -51,10 +51,17 @@
 
         <c:choose>
             <c:when test="${user.userType == 0}">
-                <c:redirect url="manageTable.jsp?type=Product Type" />
-            </c:when>
-            <c:when test="${user.userType == 1}">
+                <c:set scope="session"
+                       var="loginUserType"
+                       value="Admin"/>
 
+                <c:redirect url="manageTable.jsp?type=Product Type"/>
+            </c:when>
+
+            <c:when test="${user.userType == 1}">
+                <c:set scope="session"
+                       var="loginUserType"
+                       value="Customer"/>
                 <sql:query dataSource="${ds}" var="result1">
                     select * from cart
                     where uid=${user.id} order by cid ASC LIMIT 0 , 1;
@@ -74,7 +81,7 @@
                     </c:choose>
                 </c:forEach>
                 <c:out value="${sessionScope['cartID']}" />
-                 <c:redirect url="index.jsp"/>
+                <c:redirect url="index.jsp"/>
             </c:when>
 
         </c:choose>

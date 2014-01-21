@@ -218,7 +218,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href="" style="font-size: 12px;">My Profile</a> </br> </br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="" style="font-size: 12px;">Logout</a>
+                                <a href="logout.jsp" style="font-size: 12px;">Logout</a>
                             </td>
                         </tr>
                         <tr>
@@ -238,17 +238,29 @@
         <div id="logo"> <a href="http://all-free-download.com/free-website-templates/"><img src="images/top_logo.png" alt="" border="0" width="182" height="85" /></a> </div>
     </div>
     <div id="main_content">
-        <div id="menu_tab">
-            <ul class="menu">
-                <li></li>
+    <div id="menu_tab">
+        <ul class="menu">
+            <li><a href="index.jsp" class="nav"> Home </a></li>
+            <li class="divider"></li>
+            <sql:query dataSource="${ds}" var="result">
+                SELECT id from producttype ORDER BY id  ASC LIMIT 0 , 1;
+            </sql:query>
+            <c:forEach var="producttype" items="${result.rows}" varStatus="status">
+                <li><a href="product.jsp?type=${producttype.id}" class="nav">Products</a></li>
+            </c:forEach>
+            <li class="divider"></li>
+            <li><a href="signup.jsp" class="nav">Sign Up</a></li>
+            <li class="divider"></li>
+            <li><a href="shipping.jsp" class="nav">Shipping </a></li>
+            <li class="divider"></li>
+            <li><a href="contact.html" class="nav">Contact Us</a></li>
+            <li class="divider"></li>
+            <c:if test="${sessionScope['loginUserType'] == 'Admin'}" >
+                <li><a href="manageTable.jsp?type=Product Type" class="nav">For Admin</a></li>
                 <li class="divider"></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
+            </c:if>
+        </ul>
+    </div>
         <!-- end of menu tab -->
         <div class="crumb_navigation"> Navigation: <span class="current">Home</span> </div>
  
@@ -351,7 +363,6 @@
             </table>
         </c:when>
         <c:when test="${param.type=='Product'}">
-
             <table class="bordered">
                 <thead>
                 <tr>

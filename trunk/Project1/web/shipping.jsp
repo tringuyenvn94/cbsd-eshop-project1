@@ -56,6 +56,7 @@
         </div>
             </c:when>
             <c:when test="${not empty sessionScope['loginID']}">
+
                 <div class="top_right">
                     </br>
                     </br>
@@ -85,32 +86,32 @@
             </c:when>
         </c:choose>
 
-        <div id="logo"> <img src="images/top_logo.png" alt="" border="0" width="182" height="85" /><a href="index.jsp"></a> </div>
+        <div id="logo"> <img src="images/top_logo.png" alt="" border="0" width="182" height="85" /><a href="http://all-free-download.com/free-website-templates/"></a> </div>
     </div>
     <div id="main_content">
         <div id="menu_tab">
-        <ul class="menu">
-            <li><a href="index.jsp" class="nav"> Home </a></li>
-            <li class="divider"></li>
-            <sql:query dataSource="${snapshot}" var="result">
-                SELECT id from producttype ORDER BY id  ASC LIMIT 0 , 1;
-            </sql:query>
-            <c:forEach var="producttype" items="${result.rows}" varStatus="status">
-                <li><a href="product.jsp?type=${producttype.id}" class="nav">Products</a></li>
-            </c:forEach>
-            <li class="divider"></li>
-            <li><a href="signup.jsp" class="nav">Sign Up</a></li>
-            <li class="divider"></li>
-            <li><a href="shipping.jsp" class="nav">Shipping </a></li>
-            <li class="divider"></li>
-            <li><a href="contact.html" class="nav">Contact Us</a></li>
-            <li class="divider"></li>
-            <c:if test="${sessionScope['loginUserType'] == 'Admin'}" >
-            <li><a href="manageTable.jsp?type=Product Type" class="nav">For Admin</a></li>
-            <li class="divider"></li>
-            </c:if>
-        </ul>
-    </div>
+            <ul class="menu">
+                <li><a href="index.jsp" class="nav"> Home </a></li>
+                <li class="divider"></li>
+                <sql:query dataSource="${snapshot}" var="result">
+                    SELECT id from producttype ORDER BY id  ASC LIMIT 0 , 1;
+                </sql:query>
+                <c:forEach var="producttype" items="${result.rows}" varStatus="status">
+                    <li><a href="product.jsp?type=${producttype.id}" class="nav">Products</a></li>
+                </c:forEach>
+                <li class="divider"></li>
+                <li><a href="signup.jsp" class="nav">Sign Up</a></li>
+                <li class="divider"></li>
+                <li><a href="shipping.jsp" class="nav">Shipping </a></li>
+                <li class="divider"></li>
+                <li><a href="contact.html" class="nav">Contact Us</a></li>
+                <li class="divider"></li>
+                <c:if test="${sessionScope['loginUserType'] == 'Admin'}" >
+                    <li><a href="manageTable.jsp?type=Product Type" class="nav">For Admin</a></li>
+                    <li class="divider"></li>
+                </c:if>
+            </ul>
+        </div>
         <!-- end of menu tab -->
         <div class="crumb_navigation"> Navigation: <span class="current">Home</span> </div>
  
@@ -135,43 +136,15 @@
             <div class="banner_adds"> <a href="http://all-free-download.com/free-website-templates/"></a> </div>
         </div>
         <!-- end of left content -->
-        <sql:query dataSource="${snapshot}" var="result3">
-            SELECT * from product ORDER BY DATE ASC LIMIT 0 , 1;
-        </sql:query>
+     
 
 
         <div class="center_content">
-            <c:forEach var="product" items="${result3.rows}" >
-            <div class="oferta"> <img src="images/product/${product.id}.png" width="165" height="113" border="0" class="oferta_img" alt="" />
-                <div class="oferta_details">
-                    <div class="oferta_title">${product.pname}</div>
-                    <div class="oferta_text">&nbsp; </div>
-                    <a href="http://all-free-download.com/free-website-templates/" class="prod_buy">details</a> </div>
-            </div>
-            </c:forEach>
-            <div class="center_title_bar">Latest Products</div>
-            <sql:query dataSource="${snapshot}" var="result">
-                SELECT * from product ORDER BY DATE ASC LIMIT 0 , 6;;
-            </sql:query>
-            <c:forEach var="product" items="${result.rows}" varStatus="status">
-                <div class="prod_box">
-                    <div class="center_prod_box">
-                        <div class="product_title"><a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');">${product.id} ${product.pname} (${product.date} )</a></div>
-                        <div class="product_img"><a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');"><img src="images/product/${product.id}.png" alt="" border="0" width="94" height="71" /></a></div>
-                        <div class="prod_price"><!--<span class="reduce">350$</span> --><span class="price">${product.price} Bath.</span></div>
-                    </div>
-                    <div class="prod_details_tab">
-                        <c:if test="${not empty sessionScope['loginID']}">
-                            <a href="cart.jsp?type=addProduct&id=${product.id}" class="prod_buy"> Add to Cart</a>
-                        </c:if>
-                        <a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');"
-                           class="prod_details">
-                            Details
-                        </a>
-                    </div>
-                </div>
-            </c:forEach>
-
+          
+            <div class="center_title_bar">Signup</div>
+            <table>
+				
+			</table>
         </div>
         <!-- end of center content -->
         <div class="right_content">
@@ -180,6 +153,14 @@
                 <input type="text" name="newsletter" class="newsletter_input" value="keyword"/>
                 <a href="http://all-free-download.com/free-website-templates/" class="join">search</a> </div>
             <c:choose>
+                <c:when test="${empty sessionScope['cartID']}">
+                <div class="shopping_cart">
+                    <div class="title_box">Shopping cart</div>
+                    <div class="cart_details"> 0 items <br />
+                        <span class="border_cart"></span> Total: <span class="price">0$</span> </div>
+                    <div class="cart_icon"><a href="http://all-free-download.com/free-website-templates/"><img src="images/shoppingcart.png" alt="" width="35" height="35" border="0" /></a></div>
+                </div>
+                </c:when>
                 <c:when test="${not empty sessionScope['cartID']}">
                     <sql:query dataSource="${snapshot}" var="result4">
                         SELECT amount,productPrice from cart_product where cid=${sessionScope['cartID']};
@@ -193,8 +174,9 @@
                     <div class="shopping_cart">
                         <div class="title_box">Shopping cart</div>
                         <div class="cart_details"> ${totalProduct} items <br />
-                            <span class="border_cart"></span> Total: <span class="price">${totalPrice} $</span> </div>
-                        <div class="cart_icon"><a href="cart.jsp?type=manageProduct"><img src="images/shoppingcart.png" alt="" width="35" height="35" border="0" /></a></div>
+                            <span class="border_cart"></span> Total: <span class="price">${totalPrice} $</span>
+                        </div>
+                        <div class="cart_icon"><a href="http://all-free-download.com/free-website-templates/"><img src="images/shoppingcart.png" alt="" width="35" height="35" border="0" /></a></div>
                     </div>
                 </c:when>
             </c:choose>
@@ -212,15 +194,7 @@
                             <div class="product_img"><a href="http://all-free-download.com/free-website-templates/"><img src="images/product/${product.id}.png"  alt="" border="0" width="94" height="71" /></a></div>
                             <div class="prod_price"><!--<span class="reduce">350$</span> --><span class="price">${product.price} Bath.</span></div>
                         </div>
-                        <div class="prod_details_tab">
-                            <c:if test="${not empty sessionScope['loginID']}">
-                                <a href="cart.jsp?type=addProduct&id=${product.id}" class="prod_buy"> Add to Cart</a>
-                            </c:if>
-                            <a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');"
-                               class="prod_details">
-                                Details
-                            </a>
-                        </div>
+                        <div class="prod_details_tab"> <a href="http://all-free-download.com/free-website-templates/" class="prod_buy">Add to Cart</a> <a href="http://all-free-download.com/free-website-templates/" class="prod_details">Details</a> </div>
                     </div>
                 </c:forEach>
 

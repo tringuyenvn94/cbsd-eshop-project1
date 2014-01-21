@@ -24,9 +24,9 @@
         UploadFile uploadFile =(UploadFile)mul.getFiles().get("pic");
         String prefix =  getServletInfo();
         out.println(prefix+"");
-        uploadFile.setFileName("12.jpg");
+        uploadFile.setFileName("20.jpg");
         UploadBean up = new UploadBean();
-        up.setFolderstore(getClass()+"C:\\Users\\XGxYeSiSaexX\\Desktop\\LabComponentBase\\Project2\\web\\images\\product");
+        up.setFolderstore("C:\\Users\\XGxYeSiSaexX\\Desktop\\Project1\\web\\images\\product");
         up.store(mul);
     }
     catch(Exception e){
