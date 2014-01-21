@@ -351,7 +351,6 @@
             </table>
         </c:when>
         <c:when test="${param.type=='Product'}">
-
             <table class="bordered">
                 <thead>
                 <tr>
