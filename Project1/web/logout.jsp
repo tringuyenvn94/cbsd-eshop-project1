@@ -21,7 +21,6 @@
     }
     session.removeAttribute("loginUserType");
 %>
-
 <c:redirect url="index.jsp"/>
 </body>
 </html>

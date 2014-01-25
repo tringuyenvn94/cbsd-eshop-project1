@@ -82,7 +82,7 @@
                 </div>
             </c:when>
         </c:choose>
-        <div id="logo"> <a href="index.jsp"><img src="images/top_logo.png" alt="" border="0" width="182" height="85" /></a> </div>
+        <div id="logo"> <a href="index.jsp"><img src="images/mainlogo.png" alt="" border="0" width="182" height="85" /></a> </div>
     </div>
     <div id="main_content">
         <div id="menu_tab">
@@ -96,14 +96,16 @@
                     <li><a href="product.jsp?type=${producttype.id}" class="nav">Products</a></li>
                 </c:forEach>
                 <li class="divider"></li>
-                <li><a href="signup.jsp" class="nav">Sign Up</a></li>
-                <li class="divider"></li>
-                <li><a href="shipping.jsp" class="nav">Shipping </a></li>
-                <li class="divider"></li>
-                <li><a href="contact.html" class="nav">Contact Us</a></li>
-                <li class="divider"></li>
+                <c:if test="${empty sessionScope['loginID']}" >
+                    <li><a href="signup_step1.jsp" class="nav">Sign Up</a></li>
+                    <li class="divider"></li>
+                </c:if>
                 <c:if test="${sessionScope['loginUserType'] == 'Admin'}" >
-                    <li><a href="manageTable.jsp?type=Product Type" class="nav">For Admin</a></li>
+                    <li><a href="manageTable.jsp?type=Product Type" class="nav">Admin</a></li>
+                    <li class="divider"></li>
+                </c:if>
+                <c:if test="${sessionScope['loginUserType'] == 'Customer'}" >
+                    <li><a href="history.jsp" class="nav">History</a></li>
                     <li class="divider"></li>
                 </c:if>
             </ul>
@@ -145,9 +147,9 @@
             <c:forEach var="product" items="${result2.rows}" varStatus="status">
                 <div class="prod_box">
                     <div class="center_prod_box">
-                        <div class="product_title"><a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');">${product.id} ${product.pname} (${product.date} )</a></div>
-                        <div class="product_img"><a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');"><img src="images/${product.picture}"  alt="" border="0" /></a></div>
-                        <div class="prod_price"><span class="price">${product.price} Bath.</span></div>
+                        <div class="product_title"><a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');">${product.pname}</a></div>
+                        <div class="product_img"><a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');"><img src="images/product/${product.id}.png" alt="" border="0" width="94" height="71" /></a></div>
+                        <div class="prod_price"><!--<span class="reduce">350$</span> --><span class="price">${product.price} $</span></div>
                     </div>
                     <div class="prod_details_tab">
                         <c:if test="${not empty sessionScope['loginID']}">
@@ -166,14 +168,34 @@
         <div class="right_content">
             <div class="title_box">Search</div>
             <div class="border_box">
-                <input type="text" name="newsletter" class="newsletter_input" value="keyword"/>
-                <a href="http://all-free-download.com/free-website-templates/" class="join">search</a> </div>
-            <div class="shopping_cart">
-                <div class="title_box">Shopping cart</div>
-                <div class="cart_details"> 3 items <br />
-                    <span class="border_cart"></span> Total: <span class="price">350$</span> </div>
-                <div class="cart_icon"><a href="http://all-free-download.com/free-website-templates/"><img src="images/shoppingcart.png" alt="" width="35" height="35" border="0" /></a></div>
+                <form method="get" action="searchProduct.jsp">
+                    <input type="text" name="value" class="newsletter_input" />
+                    <input type="hidden" name="searchBy"  value="name" />
+                    <input type="submit" value="Search" />
+
+                </form>
             </div>
+
+            <c:choose>
+                <c:when test="${not empty sessionScope['cartID']}">
+                    <sql:query dataSource="${snapshot}" var="result4">
+                        SELECT amount,productPrice from cart_product where cid=${sessionScope['cartID']};
+                    </sql:query>
+                    <c:set var="totalPrice" value="0" />
+                    <c:set var="totalProduct" value="0" />
+                    <c:forEach var="product" items="${result4.rows}" varStatus="status">
+                        <c:set var="totalPrice" value="${totalPrice + product.amount*product.productPrice}" />
+                        <c:set var="totalProduct" value="${totalProduct + product.amount}" />
+                    </c:forEach>
+                    <div class="shopping_cart">
+                        <div class="title_box">Shopping cart</div>
+                        <div class="cart_details"> ${totalProduct} items <br />
+                            <span class="border_cart"></span> Total: <span class="price">${totalPrice} $</span> </div>
+                        <div class="cart_icon"><a href="cart.jsp?type=manageProduct"><img src="images/shoppingcart.png" alt="" width="35" height="35" border="0" /></a></div>
+                    </div>
+                </c:when>
+            </c:choose>
+
             <div class="title_box">What’s new</div>
 
             <div class="border_box">
@@ -183,12 +205,12 @@
                 <c:forEach var="product" items="${result.rows}" varStatus="status">
                     <div class="prod_box">
                         <div class="center_prod_box">
-                            <div class="product_title"><a href="http://all-free-download.com/free-website-templates/">${product.id} ${product.pname} (${product.date} )</a></div>
-                            <div class="product_img"><a href="http://all-free-download.com/free-website-templates/"><img src="images/product/${product.id}.png"  alt="" border="0" width="94" height="71" /></a></div>
-                            <div class="prod_price"><!--<span class="reduce">350$</span> --><span class="price">${product.price} Bath.</span></div>
+                            <div class="product_title"><a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');">${product.pname}</a></div>
+                            <div class="product_img"><a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');"><img src="images/product/${product.id}.png" alt="" border="0" width="94" height="71" /></a></div>
+                            <div class="prod_price"><!--<span class="reduce">350$</span> --><span class="price">${product.price} $</span></div>
                         </div>
                         <div class="prod_details_tab">
-                            <c:if test="${not empty sessionScope['loginID']}">
+                            <c:if test="${sessionScope['loginUserType'] == 'Customer'}">
                                 <a href="cart.jsp?type=addProduct&id=${product.id}" class="prod_buy"> Add to Cart</a>
                             </c:if>
                             <a onclick="window.open('detail.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');"
@@ -207,7 +229,7 @@
     </div>
     <!-- end of main content -->
     <div class="footer">
-        <div class="left_footer"> <img src="images/footer_logo.png" alt="" width="89" height="42"/> </div>
+        <div class="left_footer"> <img src="images/mainlogo.png" alt="" width="89" height="42"/> </div>
         <div class="center_footer"><br />
             <img src="images/payment.gif" alt="" /> </div>
         <div class="right_footer"> <a href="http://all-free-download.com/free-website-templates/">home</a> <a href="http://all-free-download.com/free-website-templates/">about</a> <a href="http://all-free-download.com/free-website-templates/">sitemap</a> <a href="http://all-free-download.com/free-website-templates/">rss</a> <a href="http://all-free-download.com/free-website-templates/">contact us</a> </div>

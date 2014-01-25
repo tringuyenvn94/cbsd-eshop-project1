@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ page import="javax.swing.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <html>
@@ -19,6 +20,17 @@
     <link rel="stylesheet" type="text/css" href="iecss.css" />
     <![endif]-->
     <script type="text/javascript" src="js/boxOver.js"></script>
+    <script type="text/javascript" >
+    function continueShopping(id){
+
+    window.location=("product.jsp?type="+id)
+
+    }
+        function onShowMSG(msg){
+            alert(msg);
+            return "";
+        }
+    </script>
     <style>
         table {
             *border-collapse: collapse; /* IE7 and lower */
@@ -107,12 +119,8 @@
             var r=confirm("Are you sure to delete "+name+ "?");
             if (r==true)
             {
-                window.location=("deleteProductInCart.jsp?id="+id)
+                window.location=("deleteProductInCart.jsp?id="+id);
             }
-        }
-        function openCheckOutPage(){
-            //alert("Haha");
-            window.location=('checkout.jsp')
         }
 
     </script>
@@ -123,7 +131,9 @@
                    user="root"  password="1234"/>
 
 
-
+<c:if test="${not empty errMsg}">
+    <% JOptionPane.showMessageDialog(null, "Eggs are not supposed to be green."); %>
+</c:if>
 <div id="main_container">
     <div id="header">
 
@@ -239,84 +249,12 @@
 
         <div class="center_content">
           
-            <div class="center_title_bar">Cart</div>
-            <c:choose>
-            <c:when test="${param.type=='addProduct'}">
-                <sql:query dataSource="${snapshot}" var="result">
-                    SELECT * from cart_product where cid=${sessionScope['cartID']};
-                </sql:query>
-                <table class="bordered">
-                    <thead>
-                    <tr>
-                        <th colspan="1">No</th>
-                        <th colspan="4">Pic</th>
-                        <th colspan="4">Name</th>
-                        <th colspan="4">Price/Unit</th>
-                        <th colspan="4">Amount</th>
-                        <th colspan="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                        <th colspan="4">&nbsp;</th>
-                    </tr>
-                    </thead>
-                    <sql:query dataSource="${snapshot}" var="addProductSet">
-                        SELECT * from product where id=${param.id};
-                    </sql:query>
-                    <form method="post" action="addProductToCart.jsp">
-                        <tr>
-                            <c:forEach var="product" items="${addProductSet.rows}" >
-                            <td colspan="1">&nbsp;</td>
-                            <td colspan="4"><input type="hidden" name="id" value="${product.id}"/><img src="images/product/${product.id}.png" alt="" border="0" width="94" height="71" /></td>
-                            <td colspan="4">${product.pname}<input type="hidden" name="pname" value="${product.pname}"/></td>
-                            <td colspan="4">${product.price}<input type="hidden" name="price" value="${product.price}"/></td>
-                            <td colspan="4"><input type="text" value="1" name="amount" style="width: 80px;"/></td>
-                            <td colspan="6">&nbsp;</td>
-                            <td colspan="4">
-                                <input type="image"
-                                       src="images/button/add.png"
-                                        />
-                            </td>
-                            </c:forEach>
-                        </tr>
-                    </form>
-                    <c:set var="totalAmount" value="0" />
-                    <c:set var="totalPrice" value="0" />
-                <c:forEach var="cart_product" items="${result.rows}" varStatus="status">
-                    <tr>
-                        <td colspan="1">${status.count}</td>
-
-                        <td colspan="4"><img src="images/product/${cart_product.pid}.png" alt="" border="0" width="94" height="71" /></td>
-                        <td colspan="4">${cart_product.pname}</td>
-                        <td colspan="4">${cart_product.productPrice} $</td>
-                        <td colspan="4">${cart_product.amount}</td>
-                        <td colspan="6">${cart_product.amount*cart_product.productPrice} $</td>
-                        <td colspan="4">
-                        <input type="image"
-                               src="images/button/del.png"
-                               onclick="deleteProduct('${cart_product.cpid}','${cart_product.pname}');">
-                        </td>
-                        <c:set var="totalAmount" value="${totalAmount + cart_product.amount}" />
-                        <c:set var="totalPrice" value="${totalPrice + cart_product.amount*cart_product.productPrice}" />
-                    </tr>
-                </c:forEach>
-                    <tr>
-                        <td colspan="1">&nbsp;</td>
-
-                        <td colspan="4">&nbsp;</td>
-                        <td colspan="4">&nbsp;</td>
-                        <td colspan="4">Total</td>
-                        <td colspan="4">${totalAmount} </td>
-                        <td colspan="6">${totalPrice} $</td>
-                        <td colspan="4">&nbsp;</td>
-
-                    </tr>
-                <%-- </form> --%>
-
-            </table>
-        </c:when>
-                <c:when test="${param.type=='manageProduct'}">
+            <div class="center_title_bar">Check Out</div>
                     <sql:query dataSource="${snapshot}" var="result">
                         SELECT * from cart_product where cid=${sessionScope['cartID']};
                     </sql:query>
-                    <table class="bordered">
+
+                    <table class="bordered" style="margin-top: 50px;">
                         <thead>
                         <tr>
                             <th colspan="1">No</th>
@@ -325,10 +263,8 @@
                             <th colspan="4">Price/Unit</th>
                             <th colspan="4">Amount</th>
                             <th colspan="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                            <th colspan="4">&nbsp;</th>
                         </tr>
                         </thead>
-
                         <c:set var="totalAmount" value="0" />
                         <c:set var="totalPrice" value="0" />
                         <c:forEach var="cart_product" items="${result.rows}" varStatus="status">
@@ -340,35 +276,42 @@
                                 <td colspan="4">${cart_product.productPrice} $</td>
                                 <td colspan="4">${cart_product.amount}</td>
                                 <td colspan="6">${cart_product.amount*cart_product.productPrice} $</td>
-                                <td colspan="4">
-                                    <input type="image"
-                                           src="images/button/del.png"
-                                           onclick="deleteProduct('${cart_product.cpid}','${cart_product.pname}');">
-                                </td>
                                 <c:set var="totalAmount" value="${totalAmount + cart_product.amount}" />
                                 <c:set var="totalPrice" value="${totalPrice + cart_product.amount*cart_product.productPrice}" />
                             </tr>
                         </c:forEach>
                         <tr>
                             <td colspan="1">&nbsp;</td>
-
                             <td colspan="4">&nbsp;</td>
                             <td colspan="4">&nbsp;</td>
                             <td colspan="4">Total</td>
                             <td colspan="4">${totalAmount} </td>
                             <td colspan="6">${totalPrice} $ </td>
-                            <td colspan="4">&nbsp;</td>
-
                         </tr>
-                            <%-- </form> --%>
-
                     </table>
-                    </br></br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="Check Out" onclick="openCheckOutPage();">
-                </c:when>
+            </br> </br>
+            <form action="addPaymentMethod.jsp" method="post">
+                &emsp;&emsp;&emsp;&nbsp;
+                <p2>Select Payment method</p2>
+                &emsp;&emsp;
+                <select name="paymentMethod" >
+                    <option value="Paypal">Paypal</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Transfer">Transfer</option>
+                </select>
+                <sql:query dataSource="${snapshot}" var="result">
+                    SELECT id from producttype ORDER BY id  ASC LIMIT 0 , 1;
+                </sql:query>
+                <c:forEach var="producttype" items="${result.rows}" varStatus="status">
+                    &nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Check out"/>
+                    &emsp;&emsp;&emsp;&emsp;&nbsp;
+                    <input type="button" value="Continue Shopping" onclick="continueShopping(${producttype.id});"/>
+                </c:forEach>
 
-        </c:choose>
+            </form>
+
+
 
     </div>
     <!-- end of center content -->

@@ -97,10 +97,10 @@
     </style>
     <title></title>
 </head>
-<body>
+<body background="images/bgdetail.png">
     <table style="width: 100%;">
         <tr>
-        <th><img src="images/product/${param.id}.png" width="300" height="240"/></th>
+        <th><img src="images/product/${param.id}.png" width="450" height="360"/></th>
 
         </tr>
     <sql:setDataSource var="ds" driver="com.mysql.jdbc.Driver"
@@ -109,26 +109,17 @@
     <sql:query dataSource="${ds}" var="result">
         select description from product where id=${param.id}
     </sql:query>
-    <c:forEach var="product" items="${result.rows}" >
-        <c:set var="description" value="${product.description}"/>
-    </c:forEach>
+
         <tr>
             <th>
-    <table border="1" class="bordered">
-            <%
-            String description = (String) pageContext.getAttribute("description");
-            String [] listStr = description.split(",!");
-            for(int i = 0 ; i < listStr.length ; i += 1){
-                String [] columns = listStr[i].split("\\|");
-                out.print("<tr>");
-                for(int j = 0 ; j < columns.length ; j += 1){
-                    out.print("<td colspan=\"6\">" + columns[j] + "</td>");
-                }
-                out.print("</tr>");
-            }
-        %>
 
-    </table>
+                <c:forEach var="product" items="${result.rows}" >
+                    </br>
+                    <h1>${product.description}</h1>
+                </c:forEach>
+
+
+
             </th>
         </tr>
     </table>

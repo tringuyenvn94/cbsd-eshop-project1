@@ -19,6 +19,16 @@
 <sql:update dataSource="${ds}" var="count">
     insert into user values(null,'${param.name}','${param.surname}','${param.username}','${param.password}','${param.email}','${param.tel}','${param.address}',1);
 </sql:update>
-<c:redirect url="manageTable.jsp?type=User"/>
+
+<sql:query dataSource="${ds}" var="result">
+        SELECT id from user ORDER BY id  DESC LIMIT 0 , 1;
+</sql:query>
+
+<c:forEach var="user" items="${result.rows}" varStatus="status">
+    <c:redirect url="signup_step2.jsp">
+        <c:param name="id" value="${user.id}" />
+    </c:redirect>
+</c:forEach>
+
 </body>
 </html>

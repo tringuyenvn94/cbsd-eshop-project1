@@ -103,18 +103,9 @@
         }
     </style>
     <script>
-        function deleteProduct(id,name){
-            var r=confirm("Are you sure to delete "+name+ "?");
-            if (r==true)
-            {
-                window.location=("deleteProductInCart.jsp?id="+id)
-            }
+        function backToHistoryByDate(){
+            window.location=('manageTable.jsp?type=History By Date')
         }
-        function openCheckOutPage(){
-            //alert("Haha");
-            window.location=('checkout.jsp')
-        }
-
     </script>
 </head>
 <body>
@@ -133,7 +124,7 @@
                 <div class="top_right">
                     </br>
                     </br>
-            <form method="post" action="loginAuthenticate.jsp">
+             <form method="post" action="loginAuthenticate.jsp">
                 <table>
                     <tr>
                         <td><p1>Username &nbsp; </p1></td>
@@ -182,7 +173,7 @@
             </c:when>
         </c:choose>
 
-        <div id="logo"> <img src="images/top_logo.png" alt="" border="0" width="182" height="85" /><a href="http://all-free-download.com/free-website-templates/"></a> </div>
+        <div id="logo"> <img src="images/mainlogo.png" alt="" border="0" width="182" height="85" /><a href="http://all-free-download.com/free-website-templates/"></a> </div>
     </div>
     <div id="main_content">
         <div id="menu_tab">
@@ -239,136 +230,60 @@
 
         <div class="center_content">
           
-            <div class="center_title_bar">Cart</div>
-            <c:choose>
-            <c:when test="${param.type=='addProduct'}">
+            <div class="center_title_bar">History</div>
+
                 <sql:query dataSource="${snapshot}" var="result">
-                    SELECT * from cart_product where cid=${sessionScope['cartID']};
+                    SELECT * from cart where confirmDate='${param.confirmDate}' order by uid asc;
                 </sql:query>
-                <table class="bordered">
+
+                <table class="bordered" style="margin-top: 50px;">
                     <thead>
                     <tr>
                         <th colspan="1">No</th>
-                        <th colspan="4">Pic</th>
-                        <th colspan="4">Name</th>
-                        <th colspan="4">Price/Unit</th>
-                        <th colspan="4">Amount</th>
-                        <th colspan="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                        <th colspan="4">&nbsp;</th>
+                        <th colspan="4">Total Price</th>
+                        <th colspan="4">Status</th>
+                        <th colspan="4">Customer Name</th>
                     </tr>
-                    </thead>
-                    <sql:query dataSource="${snapshot}" var="addProductSet">
-                        SELECT * from product where id=${param.id};
-                    </sql:query>
-                    <form method="post" action="addProductToCart.jsp">
-                        <tr>
-                            <c:forEach var="product" items="${addProductSet.rows}" >
-                            <td colspan="1">&nbsp;</td>
-                            <td colspan="4"><input type="hidden" name="id" value="${product.id}"/><img src="images/product/${product.id}.png" alt="" border="0" width="94" height="71" /></td>
-                            <td colspan="4">${product.pname}<input type="hidden" name="pname" value="${product.pname}"/></td>
-                            <td colspan="4">${product.price}<input type="hidden" name="price" value="${product.price}"/></td>
-                            <td colspan="4"><input type="text" value="1" name="amount" style="width: 80px;"/></td>
-                            <td colspan="6">&nbsp;</td>
-                            <td colspan="4">
-                                <input type="image"
-                                       src="images/button/add.png"
-                                        />
-                            </td>
-                            </c:forEach>
-                        </tr>
-                    </form>
-                    <c:set var="totalAmount" value="0" />
-                    <c:set var="totalPrice" value="0" />
-                <c:forEach var="cart_product" items="${result.rows}" varStatus="status">
+                    </thead>                    
+                 
+                <c:forEach var="cart" items="${result.rows}" varStatus="status">
                     <tr>
                         <td colspan="1">${status.count}</td>
 
-                        <td colspan="4"><img src="images/product/${cart_product.pid}.png" alt="" border="0" width="94" height="71" /></td>
-                        <td colspan="4">${cart_product.pname}</td>
-                        <td colspan="4">${cart_product.productPrice} $</td>
-                        <td colspan="4">${cart_product.amount}</td>
-                        <td colspan="6">${cart_product.amount*cart_product.productPrice} $</td>
-                        <td colspan="4">
-                        <input type="image"
-                               src="images/button/del.png"
-                               onclick="deleteProduct('${cart_product.cpid}','${cart_product.pname}');">
-                        </td>
-                        <c:set var="totalAmount" value="${totalAmount + cart_product.amount}" />
-                        <c:set var="totalPrice" value="${totalPrice + cart_product.amount*cart_product.productPrice}" />
+                        <sql:query dataSource="${snapshot}" var="result4">
+                            SELECT amount,productPrice from cart_product where cid=${cart.cid};
+                        </sql:query>
+                        <c:set var="totalPrice" value="0" />
+                        <c:forEach var="product" items="${result4.rows}">
+                            <c:set var="totalPrice" value="${totalPrice + product.amount*product.productPrice}" />
+                        </c:forEach>
+                        <td colspan="4">${totalPrice} $</td>
+                        <c:choose>
+                            <c:when test="${cart.confirmStatus == 1}">
+                                <td colspan="4">Success</td>
+                            </c:when>
+                            <c:when test="${cart.confirmStatus == 0}">
+                                <td colspan="4">-</td>
+                            </c:when>
+                        </c:choose>
+                        <sql:query dataSource="${snapshot}" var="resultSet">
+                            SELECT uname,surname from user where id=${cart.uid};
+                        </sql:query>
+                        <c:forEach var="user" items="${resultSet.rows}">
+                            <td colspan="4"><a href="historyDetail.jsp?cid=${cart.cid}&date=${cart.confirmDate}&from=adminDate&id=${cart.uid}" >${user.uname}&nbsp;&nbsp;${user.surname}</a></td>
+                        </c:forEach>
+
+
                     </tr>
                 </c:forEach>
-                    <tr>
-                        <td colspan="1">&nbsp;</td>
 
-                        <td colspan="4">&nbsp;</td>
-                        <td colspan="4">&nbsp;</td>
-                        <td colspan="4">Total</td>
-                        <td colspan="4">${totalAmount} </td>
-                        <td colspan="6">${totalPrice} $</td>
-                        <td colspan="4">&nbsp;</td>
-
-                    </tr>
-                <%-- </form> --%>
 
             </table>
-        </c:when>
-                <c:when test="${param.type=='manageProduct'}">
-                    <sql:query dataSource="${snapshot}" var="result">
-                        SELECT * from cart_product where cid=${sessionScope['cartID']};
-                    </sql:query>
-                    <table class="bordered">
-                        <thead>
-                        <tr>
-                            <th colspan="1">No</th>
-                            <th colspan="4">Pic</th>
-                            <th colspan="4">Name</th>
-                            <th colspan="4">Price/Unit</th>
-                            <th colspan="4">Amount</th>
-                            <th colspan="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                            <th colspan="4">&nbsp;</th>
-                        </tr>
-                        </thead>
 
-                        <c:set var="totalAmount" value="0" />
-                        <c:set var="totalPrice" value="0" />
-                        <c:forEach var="cart_product" items="${result.rows}" varStatus="status">
-                            <tr>
-                                <td colspan="1">${status.count}</td>
+            </br> </br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                                <td colspan="4"><img src="images/product/${cart_product.pid}.png" alt="" border="0" width="94" height="71" /></td>
-                                <td colspan="4">${cart_product.pname}</td>
-                                <td colspan="4">${cart_product.productPrice} $</td>
-                                <td colspan="4">${cart_product.amount}</td>
-                                <td colspan="6">${cart_product.amount*cart_product.productPrice} $</td>
-                                <td colspan="4">
-                                    <input type="image"
-                                           src="images/button/del.png"
-                                           onclick="deleteProduct('${cart_product.cpid}','${cart_product.pname}');">
-                                </td>
-                                <c:set var="totalAmount" value="${totalAmount + cart_product.amount}" />
-                                <c:set var="totalPrice" value="${totalPrice + cart_product.amount*cart_product.productPrice}" />
-                            </tr>
-                        </c:forEach>
-                        <tr>
-                            <td colspan="1">&nbsp;</td>
-
-                            <td colspan="4">&nbsp;</td>
-                            <td colspan="4">&nbsp;</td>
-                            <td colspan="4">Total</td>
-                            <td colspan="4">${totalAmount} </td>
-                            <td colspan="6">${totalPrice} $ </td>
-                            <td colspan="4">&nbsp;</td>
-
-                        </tr>
-                            <%-- </form> --%>
-
-                    </table>
-                    </br></br>
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="Check Out" onclick="openCheckOutPage();">
-                </c:when>
-
-        </c:choose>
+            <input type="button" value="Back" onclick="backToHistoryByDate();">
 
     </div>
     <!-- end of center content -->
@@ -377,7 +292,7 @@
 </div>
 <!-- end of main content -->
 <div class="footer">
-    <div class="left_footer"> <img src="images/top_logo.png" alt="" width="89" height="42"/> </div>
+    <div class="left_footer"> <img src="images/mainlogo.png" alt="" width="89" height="42"/> </div>
     <div class="center_footer"><br />
         <img src="images/payment.gif" alt="" /> </div>
     <div class="right_footer"> <a href="http://all-free-download.com/free-website-templates/">home</a> <a href="http://all-free-download.com/free-website-templates/">about</a> <a href="http://all-free-download.com/free-website-templates/">sitemap</a> <a href="http://all-free-download.com/free-website-templates/">rss</a> <a href="http://all-free-download.com/free-website-templates/">contact us</a> </div>
