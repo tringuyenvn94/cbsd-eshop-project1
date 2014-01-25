@@ -8,8 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Nui shop</title>
@@ -19,163 +18,8 @@
     <![endif]-->
     <script type="text/javascript" src="js/boxOver.js"></script>
 
-    <script language="JavaScript" src="datepicker.js" type="text/javascript"></script>
-    <link href="datepicker.css" rel="stylesheet" />
-    <script>
-        function onClickCancel(type){
-            if(type=='Product Type'){
-                window.location=("manageTable.jsp?type=Product Type");
-            }else if(type=='Product'){
-               window.location=("manageTable.jsp?type=Product");
-            }else if(type=='User'){
-                window.location=("manageTable.jsp?type=User");
-            }
 
 
-        }
-        function editUser(id,name,surname,username,password,email,tel,address,userType){
-            window.location=("editUser.jsp?id=" + id +
-                    "&name=" + name +
-                    "&surname=" + surname +
-                    "&username=" + username +
-                    "&password=" +password +
-                    "&email=" + email +
-                    "&tel=" + tel +
-                    "&address=" + address +
-                    "&userType=" + userType);
-        }
-        // User
-        function deleteUser(id,name){
-            var r=confirm("Are you sure to delete "+name+ "?");
-            if (r==true)
-            {
-                window.location=("deleteUser.jsp?id="+id)
-            }
-        }
-        function onClickEditUser(id){
-            window.location=("manageTable.jsp?type=User&editid="+id)
-        }
-        // Product
-        function editProduct(id,name,description,price,amount,date,typeid){
-            window.location=("editProduct.jsp?id=" + id +
-                                                 "&name=" + name +
-                                                 "&description=" + description +
-                                                 "&price=" + price +
-                                                 "&amount=" +amount +
-                                                 "&date=" + date +
-                                                 "&typeid=" + typeid)
-        }
-        function deleteProduct(id,name){
-            var r=confirm("Are you sure to delete "+name+ "?");
-            if (r==true)
-            {
-                window.location=("deleteProduct.jsp?id="+id)
-            }
-        }
-        function onClickEditProduct(id){
-            window.location=("manageTable.jsp?type=Product&editid="+id)
-        }
-
-
-        // Product Type
-        function editProducttype(id,name,description){
-            window.location=("editProducttype.jsp?id="+id+"&name="+name+"&description="+description)
-        }
-        function onClickEditProducttype(id){
-                window.location=("manageTable.jsp?type=Product Type&editid="+id)
-        }
-        function deleteProducttype(id,name){
-            var r=confirm("Are you sure to delete "+name+ "?");
-            if (r==true)
-            {
-                window.location=("deleteProducttype.jsp?id="+id)
-            }
-        }
-    </script>
-
-    <style>
-        table {
-            *border-collapse: collapse; /* IE7 and lower */
-            border-spacing: 0;
-            width: 100%;
-        }
-
-        .bordered {
-            border: solid #ccc 1px;
-            -moz-border-radius: 6px;
-            -webkit-border-radius: 6px;
-            border-radius: 6px;
-            -webkit-box-shadow: 0 1px 1px #ccc;
-            -moz-box-shadow: 0 1px 1px #ccc;
-            box-shadow: 0 1px 1px #ccc;
-        }
-
-        .bordered tr:hover {
-            background: #fbf8e9;
-            -o-transition: all 0.1s ease-in-out;
-            -webkit-transition: all 0.1s ease-in-out;
-            -moz-transition: all 0.1s ease-in-out;
-            -ms-transition: all 0.1s ease-in-out;
-            transition: all 0.1s ease-in-out;
-        }
-
-        .bordered td, .bordered th {
-            border-left: 1px solid #ccc;
-            border-top: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        .bordered th {
-            background-color: #dce9f9;
-            background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
-            background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
-            background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
-            background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
-            background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
-            background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
-            -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-            -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
-            box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-            border-top: none;
-            text-shadow: 0 1px 0 rgba(255,255,255,.5);
-        }
-
-        .bordered td:first-child, .bordered th:first-child {
-            border-left: none;
-        }
-
-        .bordered th:first-child {
-            -moz-border-radius: 6px 0 0 0;
-            -webkit-border-radius: 6px 0 0 0;
-            border-radius: 6px 0 0 0;
-        }
-
-        .bordered th:last-child {
-            -moz-border-radius: 0 6px 0 0;
-            -webkit-border-radius: 0 6px 0 0;
-            border-radius: 0 6px 0 0;
-        }
-
-        .bordered th:only-child{
-            -moz-border-radius: 6px 6px 0 0;
-            -webkit-border-radius: 6px 6px 0 0;
-            border-radius: 6px 6px 0 0;
-        }
-
-        .bordered tr:last-child td:first-child {
-            -moz-border-radius: 0 0 0 6px;
-            -webkit-border-radius: 0 0 0 6px;
-            border-radius: 0 0 0 6px;
-        }
-
-        .bordered tr:last-child td:last-child {
-            -moz-border-radius: 0 0 6px 0;
-            -webkit-border-radius: 0 0 6px 0;
-            border-radius: 0 0 6px 0;
-        }
-        </style>
 </head>
 <body>
     <sql:setDataSource var="ds" driver="com.mysql.jdbc.Driver"
@@ -277,8 +121,6 @@
                 <li class="odd"><a href="manageTable.jsp?type=Product Type">Product Type</a></li>
                 <li class="even"><a href="manageTable.jsp?type=Product">Product</a></li>
                 <li class="odd"><a href="manageTable.jsp?type=User">User</a></li>
-                <li class="even"><a href="manageTable.jsp?type=History By Users">History By Users</a></li>
-                <li class="odd"><a href="manageTable.jsp?type=History By Date">History By Date</a></li>
             </ul>
             <div class="border_box"></div>
             <div class="banner_adds"> <a href="http://all-free-download.com/free-website-templates/"></a> </div>
@@ -296,7 +138,7 @@
             <sql:query dataSource="${ds}" var="result">
                 select * from producttype order by id desc;
             </sql:query>
-            <table class="bordered" style="margin-top: 50px;">
+            <table class="bordered">
                 <thead>
                 <tr>
                     <th colspan="1">No</th>
@@ -371,7 +213,7 @@
             </table>
         </c:when>
         <c:when test="${param.type=='Product'}">
-            <table class="bordered" style="margin-top: 50px;">
+            <table class="bordered">
                 <thead>
                 <tr>
                     <th colspan="1">No</th>
@@ -405,7 +247,7 @@
                             </c:forEach>
                             </select>
                         </td>
-                        <td colspan="6">&nbsp;</td>
+                        <td colspan="6"><input type="file" name="pic" value="Open Window" /></td>
                         <td colspan="6">
                             <input type="image"
                                    src="images/button/add.png"
@@ -433,10 +275,7 @@
                                 <c:forEach var="producttype" items="${result3.rows}" varStatus="status">
                                 <td colspan="6">${producttype.ptname}</td>
                                 </c:forEach>
-                                <td colspan="6">
-                                    <img src="images/product/${product.id}.png"  alt="" border="0" width="94" height="71" />
-                                    <%--<input type="button" onClick="window.open('viewPicture.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');" value="View" />--%>
-                                </td>
+                                <td colspan="6"><input type="button" onClick="window.open('viewPicture.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');" value="View" /></td>
                                 <td colspan="6">
                                     <input type="image"
                                            src="images/button/edit2.png"
@@ -472,9 +311,6 @@
                                         </select>
                                         </td>
                                         <td colspan="6">
-                                            <img src="images/product/${product.id}.png"  alt="" border="0" width="94" height="71" />
-                                        </td>
-                                        <td colspan="6">
                                             <input type="image"
                                                    src="images/button/ok.png"
                                                    onclick="editProduct('${product.id}',
@@ -500,6 +336,7 @@
                                             select id,ptname from producttype where id='${product.typeid}';
                                         </sql:query>
                                         <c:forEach var="producttype" items="${result3.rows}" varStatus="status">
+                                            <td colspan="6">${producttype.ptname}</td>
                                         </c:forEach>
                                         <td colspan="6"><input type="button" onClick="window.open('viewPicture.jsp?pictureType=product&id=${product.id}','Ratting','width=550,height=170,left=150,top=200,toolbar=0,status=0');" value="View" /></td>
                                         <td colspan="6">
@@ -525,7 +362,7 @@
             <sql:query dataSource="${ds}" var="result">
                 select * from user order by id desc;
             </sql:query>
-            <table class="bordered" style="margin-top: 50px;">
+            <table class="bordered">
                 <thead>
                 <tr>
                     <th colspan="1">No</th>
@@ -674,58 +511,6 @@
 
             </table>
         </c:when>
-
-        <c:when test ="${param.type=='History By Users'}">
-            <sql:query dataSource="${ds}" var="result">
-                SELECT id,uname,surname from user;
-            </sql:query>
-
-            <table class="bordered" style="margin-top: 50px;">
-                <thead>
-                <tr>
-                    <th colspan="1">No</th>
-                    <th colspan="4">Customer Name</th>
-                    <th colspan="4">Number of History</th>
-                </tr>
-                </thead>
-
-                <c:forEach var="user" items="${result.rows}" varStatus="status">
-                    <tr>
-                        <td colspan="1">${status.count}</td>
-                        <td colspan="4">
-                        ${user.uname}&nbsp;&nbsp;${user.surname}
-                        </td>
-                        <sql:query dataSource="${ds}" var="resultSet">
-                            SELECT cid from cart where uid=${user.id};
-                        </sql:query>
-
-                        <td colspan="4">
-                            <a href="adminHistoryByUsers.jsp?uid=${user.id}" >${fn:length(resultSet.rows)}</a>
-                        </td>
-
-                    </tr>
-                </c:forEach>
-
-
-            </table>
-            </br> </br>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-        </c:when>
-        <c:when test ="${param.type=='History By Date'}">
-
-            </br> </br>
-
-            <form action="adminHistoryByDate.jsp" method="get">
-            <p2>Select Date</p2>
-                Birthday: <input type="date" name="confirmDate">
-                &emsp;&emsp; <input type="submit" value="Submit" />
-            </form>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        </c:when>
-
     </c:choose>
 
         </div>

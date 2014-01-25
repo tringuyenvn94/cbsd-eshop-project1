@@ -18,9 +18,11 @@ color:#666666;
 }
 p1.forgot{
     font:Arial, Helvetica, sans-serif;
-    font-size:5px;
+    font-size:12px;
 }
-
+p2{
+    font-size:14px;
+}
 input.submit{
 width:70px;
 }
@@ -196,7 +198,7 @@ color: #ff8a00;
 /*----------newsletter--------------*/
 input.newsletter_input{
 width:150px;
-height:16px;
+height:30px;
 border:1px #ddd9d9 solid;
 margin:10px 0 5px 0;
 font-size:12px;

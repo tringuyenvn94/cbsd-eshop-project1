@@ -54,17 +54,15 @@
                 <c:set scope="session"
                        var="loginUserType"
                        value="Admin"/>
-
                 <c:redirect url="manageTable.jsp?type=Product Type"/>
             </c:when>
-
             <c:when test="${user.userType == 1}">
                 <c:set scope="session"
                        var="loginUserType"
                        value="Customer"/>
                 <sql:query dataSource="${ds}" var="result1">
                     select * from cart
-                    where uid=${user.id} order by cid ASC LIMIT 0 , 1;
+                    where uid=${user.id} order by cid DESC LIMIT 0 , 1;
                 </sql:query>
                 <c:forEach var="cart" items="${result1.rows}" >
                     <c:choose>
@@ -73,17 +71,40 @@
                                    var="cartID"
                                    value="${cart.cid}"/>
                         </c:when>
-                        <c:when test="${cart.confirmStatus == 1}">
+                        <c:when test="${cart.confirmStatus != 0}">
+                            <sql:update dataSource="${ds}" var="count">
+                                insert into cart values(null,${user.id},0,0,'1992-03-31','1992-03-31',' ');
+                            </sql:update>
+
+                            <sql:query dataSource="${ds}" var="result2">
+                                select * from cart
+                                where uid=${user.id} order by cid DESC LIMIT 0 , 1;
+                            </sql:query>
+                            <c:forEach var="cart" items="${result2.rows}" >
                             <c:set scope="session"
                                    var="cartID"
-                                   value="0"/>
+                                   value="${cart.cid}"/>
+                            </c:forEach>
                         </c:when>
                     </c:choose>
                 </c:forEach>
-                <c:out value="${sessionScope['cartID']}" />
-                <c:redirect url="index.jsp"/>
-            </c:when>
+                <c:if test="${empty sessionScope['cartID']}">
+                    <sql:update dataSource="${ds}" var="count">
+                        insert into cart values(null,${user.id},0,0,'1992-03-31','1992-03-31',' ');
+                    </sql:update>
 
+                    <sql:query dataSource="${ds}" var="result2">
+                        select * from cart
+                        where uid=${user.id} order by cid DESC LIMIT 0 , 1;
+                    </sql:query>
+                    <c:forEach var="cart" items="${result2.rows}" >
+                        <c:set scope="session"
+                               var="cartID"
+                               value="${cart.cid}"/>
+                    </c:forEach>
+                </c:if>
+                 <c:redirect url="index.jsp"/>
+            </c:when>
         </c:choose>
 
         

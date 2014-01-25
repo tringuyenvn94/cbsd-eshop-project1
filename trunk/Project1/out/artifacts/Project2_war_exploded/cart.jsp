@@ -110,6 +110,10 @@
                 window.location=("deleteProductInCart.jsp?id="+id)
             }
         }
+        function openCheckOutPage(){
+            //alert("Haha");
+            window.location=('checkout.jsp')
+        }
 
     </script>
 </head>
@@ -192,14 +196,16 @@
                     <li><a href="product.jsp?type=${producttype.id}" class="nav">Products</a></li>
                 </c:forEach>
                 <li class="divider"></li>
-                <li><a href="signup.jsp" class="nav">Sign Up</a></li>
-                <li class="divider"></li>
-                <li><a href="shipping.jsp" class="nav">Shipping </a></li>
-                <li class="divider"></li>
-                <li><a href="contact.html" class="nav">Contact Us</a></li>
-                <li class="divider"></li>
+                <c:if test="${empty sessionScope['loginID']}" >
+                    <li><a href="signup_step1.jsp" class="nav">Sign Up</a></li>
+                    <li class="divider"></li>
+                </c:if>
                 <c:if test="${sessionScope['loginUserType'] == 'Admin'}" >
-                    <li><a href="manageTable.jsp?type=Product Type" class="nav">For Admin</a></li>
+                    <li><a href="manageTable.jsp?type=Product Type" class="nav">Admin</a></li>
+                    <li class="divider"></li>
+                </c:if>
+                <c:if test="${sessionScope['loginUserType'] == 'Customer'}" >
+                    <li><a href="history.jsp" class="nav">History</a></li>
                     <li class="divider"></li>
                 </c:if>
             </ul>
@@ -357,7 +363,11 @@
                             <%-- </form> --%>
 
                     </table>
+                    </br></br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="Check Out" onclick="openCheckOutPage();">
                 </c:when>
+
         </c:choose>
 
     </div>

@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Nui shop</title>
@@ -17,6 +18,9 @@
 
     <![endif]-->
     <script type="text/javascript" src="js/boxOver.js"></script>
+
+    <script language="JavaScript" src="datepicker.js" type="text/javascript"></script>
+    <link href="datepicker.css" rel="stylesheet" />
     <script>
         function onClickCancel(type){
             if(type=='Product Type'){
@@ -249,14 +253,16 @@
                 <li><a href="product.jsp?type=${producttype.id}" class="nav">Products</a></li>
             </c:forEach>
             <li class="divider"></li>
-            <li><a href="signup.jsp" class="nav">Sign Up</a></li>
-            <li class="divider"></li>
-            <li><a href="shipping.jsp" class="nav">Shipping </a></li>
-            <li class="divider"></li>
-            <li><a href="contact.html" class="nav">Contact Us</a></li>
-            <li class="divider"></li>
+            <c:if test="${empty sessionScope['loginID']}" >
+                <li><a href="signup_step1.jsp" class="nav">Sign Up</a></li>
+                <li class="divider"></li>
+            </c:if>
             <c:if test="${sessionScope['loginUserType'] == 'Admin'}" >
-                <li><a href="manageTable.jsp?type=Product Type" class="nav">For Admin</a></li>
+                <li><a href="manageTable.jsp?type=Product Type" class="nav">Admin</a></li>
+                <li class="divider"></li>
+            </c:if>
+            <c:if test="${sessionScope['loginUserType'] == 'Customer'}" >
+                <li><a href="history.jsp" class="nav">History</a></li>
                 <li class="divider"></li>
             </c:if>
         </ul>
@@ -271,6 +277,8 @@
                 <li class="odd"><a href="manageTable.jsp?type=Product Type">Product Type</a></li>
                 <li class="even"><a href="manageTable.jsp?type=Product">Product</a></li>
                 <li class="odd"><a href="manageTable.jsp?type=User">User</a></li>
+                <li class="even"><a href="manageTable.jsp?type=History By Users">History By Users</a></li>
+                <li class="odd"><a href="manageTable.jsp?type=History By Date">History By Date</a></li>
             </ul>
             <div class="border_box"></div>
             <div class="banner_adds"> <a href="http://all-free-download.com/free-website-templates/"></a> </div>
@@ -288,7 +296,7 @@
             <sql:query dataSource="${ds}" var="result">
                 select * from producttype order by id desc;
             </sql:query>
-            <table class="bordered">
+            <table class="bordered" style="margin-top: 50px;">
                 <thead>
                 <tr>
                     <th colspan="1">No</th>
@@ -363,7 +371,7 @@
             </table>
         </c:when>
         <c:when test="${param.type=='Product'}">
-            <table class="bordered">
+            <table class="bordered" style="margin-top: 50px;">
                 <thead>
                 <tr>
                     <th colspan="1">No</th>
@@ -397,7 +405,7 @@
                             </c:forEach>
                             </select>
                         </td>
-                        <td colspan="6"><input type="file" name="pic" value="Open Window" /></td>
+                        <td colspan="6">&nbsp;</td>
                         <td colspan="6">
                             <input type="image"
                                    src="images/button/add.png"
@@ -425,7 +433,10 @@
                                 <c:forEach var="producttype" items="${result3.rows}" varStatus="status">
                                 <td colspan="6">${producttype.ptname}</td>
                                 </c:forEach>
-                                <td colspan="6"><input type="button" onClick="window.open('viewPicture.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');" value="View" /></td>
+                                <td colspan="6">
+                                    <img src="images/product/${product.id}.png"  alt="" border="0" width="94" height="71" />
+                                    <%--<input type="button" onClick="window.open('viewPicture.jsp?pictureType=product&id=${product.id}','Ratting','width=600,height=600,left=0,top=0,toolbar=0,status=0');" value="View" />--%>
+                                </td>
                                 <td colspan="6">
                                     <input type="image"
                                            src="images/button/edit2.png"
@@ -461,6 +472,9 @@
                                         </select>
                                         </td>
                                         <td colspan="6">
+                                            <img src="images/product/${product.id}.png"  alt="" border="0" width="94" height="71" />
+                                        </td>
+                                        <td colspan="6">
                                             <input type="image"
                                                    src="images/button/ok.png"
                                                    onclick="editProduct('${product.id}',
@@ -486,7 +500,6 @@
                                             select id,ptname from producttype where id='${product.typeid}';
                                         </sql:query>
                                         <c:forEach var="producttype" items="${result3.rows}" varStatus="status">
-                                            <td colspan="6">${producttype.ptname}</td>
                                         </c:forEach>
                                         <td colspan="6"><input type="button" onClick="window.open('viewPicture.jsp?pictureType=product&id=${product.id}','Ratting','width=550,height=170,left=150,top=200,toolbar=0,status=0');" value="View" /></td>
                                         <td colspan="6">
@@ -512,7 +525,7 @@
             <sql:query dataSource="${ds}" var="result">
                 select * from user order by id desc;
             </sql:query>
-            <table class="bordered">
+            <table class="bordered" style="margin-top: 50px;">
                 <thead>
                 <tr>
                     <th colspan="1">No</th>
@@ -661,6 +674,58 @@
 
             </table>
         </c:when>
+
+        <c:when test ="${param.type=='History By Users'}">
+            <sql:query dataSource="${ds}" var="result">
+                SELECT id,uname,surname from user;
+            </sql:query>
+
+            <table class="bordered" style="margin-top: 50px;">
+                <thead>
+                <tr>
+                    <th colspan="1">No</th>
+                    <th colspan="4">Customer Name</th>
+                    <th colspan="4">Number of History</th>
+                </tr>
+                </thead>
+
+                <c:forEach var="user" items="${result.rows}" varStatus="status">
+                    <tr>
+                        <td colspan="1">${status.count}</td>
+                        <td colspan="4">
+                        ${user.uname}&nbsp;&nbsp;${user.surname}
+                        </td>
+                        <sql:query dataSource="${ds}" var="resultSet">
+                            SELECT cid from cart where uid=${user.id};
+                        </sql:query>
+
+                        <td colspan="4">
+                            <a href="adminHistoryByUsers.jsp?uid=${user.id}" >${fn:length(resultSet.rows)}</a>
+                        </td>
+
+                    </tr>
+                </c:forEach>
+
+
+            </table>
+            </br> </br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+        </c:when>
+        <c:when test ="${param.type=='History By Date'}">
+
+            </br> </br>
+
+            <form action="adminHistoryByDate.jsp" method="get">
+            <p2>Select Date</p2>
+                Birthday: <input type="date" name="confirmDate">
+                &emsp;&emsp; <input type="submit" value="Submit" />
+            </form>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </c:when>
+
     </c:choose>
 
         </div>

@@ -27,26 +27,10 @@
 <c:forEach var="product" items="${result.rows}" varStatus="status">
     <c:set var="id" value="${product.id}" />
 
-    <%
-        /*try{
-            MultipartFormDataRequest mul = new MultipartFormDataRequest(request);
-            UploadFile uploadFile =(UploadFile)mul.getFiles().get("pic");
-            String id = ParamUtil.getString(request, "fromemail");
 
-            out.println("HH "+id);
-            uploadFile.setFileName(id+".jpg");
-            UploadBean up = new UploadBean();
-            up.setFolderstore(getClass()+"C:\\Users\\XGxYeSiSaexX\\Desktop\\LabComponentBase\\Project2\\web\\images\\product");
-            up.store(mul);
-        }
-        catch(Exception e){
-            out.print(e);
-        }
-        */
-    %>
 
 </c:forEach>
-<c:redirect url="manageTable.jsp?type=Product" />
+<c:redirect url="selectProductPicture.jsp" />
 
 </body>
 </html>

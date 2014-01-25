@@ -16,7 +16,7 @@
 <h1>Hello World!</h1>
 <form action ="TestPic2.jsp" enctype="multipart/form-data" method="POST">
     file:<input type="file" name="pic"/><br/>
-    <input type="submit" value="Send"/>
+    <input type="submit" onclick=" " value="Send"/>
 
 
 </form>
